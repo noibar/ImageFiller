@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
     
-    self.totalImageDownloadCount = 100;
-    self.totalImageWriteCount = 5000;
+    self.totalImageDownloadCount = 1000;
+    self.totalImageWriteCount = 20000;
     
     self.assetsLibrary = [[ALAssetsLibrary alloc] init];
 }
@@ -100,7 +100,7 @@
     NSURL *tempURL = [NSURL fileURLWithPath:NSTemporaryDirectory()];
     
     for (NSInteger index = 0; index < self.totalImageDownloadCount; index++) {
-        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://lorempixel.com/400/400/?%i", arc4random()]];
+        NSURL *URL = [NSURL URLWithString: @"https://picsum.photos/1170/2080"];
         NSURLRequest *request = [NSURLRequest requestWithURL:URL];
         NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request
                                                                      completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
